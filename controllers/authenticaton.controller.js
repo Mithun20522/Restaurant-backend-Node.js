@@ -55,7 +55,7 @@ export const login = async(req, res) => {
             return res.status(400).json({message:"you're already logged in."});
         }
 
-        const token = jwt.sign({id:existingUser._id}, process.env.JWT_SECRET_KEY, {expiresIn:'1h'});
+        const token = jwt.sign({id:existingUser._id,userType:existingUser.userType}, process.env.JWT_SECRET_KEY, {expiresIn:'1h'});
         res.cookie('acess_token_restaurent', token);
 
         return res.status(200).json({message:'Login sucessfull'});
@@ -72,7 +72,7 @@ export const logout = async(req, res) => {
         if(!token) {
             return res.status(400).json({message: 'Login required!'});
         }
-
+       
         res.clearCookie('acess_token_restaurent');
         return res.status(200).json({message: 'Logged out successfully!'});
 
