@@ -16,3 +16,17 @@ export const addRestaurent = async(req, res) => {
         return res.status(500).json({error:error.message});
     }
 }
+
+export const getRestaurents = async(req, res) => {
+    try {
+        const restaurents = await Restaurant.find();
+        if(!restaurents){
+            return res.status(404).json({message:'You have no restaurents yet!'});
+        }
+
+        return res.status(200).json(restaurents);
+        
+    } catch (error) {
+        return res.status(500).json({error:error.message});
+    }
+}
