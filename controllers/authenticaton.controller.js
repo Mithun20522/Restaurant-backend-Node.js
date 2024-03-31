@@ -1,5 +1,6 @@
 import User from '../models/user.model.js';
 import bcrypt from 'bcryptjs';
+import jwt from 'jsonwebtoken';
 
 export const register = async(req, res) => {
     try {
@@ -44,14 +45,22 @@ export const login = async(req, res) => {
             return res.status(404).json({message:'No user found!'});
         }
 
-        const isValid = bcrypt.compareSync(password, existingUser.password);
-        if(!isValid) {
+        const isValidUser = bcrypt.compareSync(password, existingUser.password);
+        if(!isValidUser) {
             return res.status(401).json({message:'Incorrect Password'})
         }
 
+        const isAlreadyLoggedIn = req.cookies.acess_token_restaurent;
+        if(isAlreadyLoggedIn) return res.status(400).json({message:"you're already logged in."})
+
+        const token = jwt.sign({id:existingUser._id}, process.env.JWT_SECRET_KEY, {expiresIn:'1h'});
+        res.cookie('acess_token_restaurent', token);
+        
         return res.status(200).json({message:'Login sucessfull'});
 
     } catch (error) {
         return res.status(500).json({message:error.message});
     }
 }
+
+
