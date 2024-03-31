@@ -5,6 +5,7 @@ const restaurentSchema = new mongoose.Schema({
         type:String,
         required:true
     },
+
     logoUrl:{
         type:String,
         default:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTK9TcBv2OrO6ssBXw0Zy1sI7xtPpE-yg3I-8ExD1s9pnJu-zb7fBl7ryuWCk-aQO9qZNs&usqp=CAU"
@@ -42,15 +43,6 @@ const restaurentSchema = new mongoose.Schema({
     restaurentAddress:{
         type:Array,
         required:true
-    },
-    restaurentPhone:{
-        type:String,
-        required:true
-    },
-    restaurentEmail:{
-        type:String,
-        required:true,
-        unique:true
     }
 },{timestamps:true});
 

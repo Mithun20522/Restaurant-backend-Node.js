@@ -6,6 +6,7 @@ import cookieParser from 'cookie-parser';
 import connectMongoDB from './database/mongoDB.js';
 import authenticationRouter from './routes/authentication.route.js';
 import userRouter from './routes/user.route.js';
+import restaurentRouter from './routes/restaurent.route.js';
 dotenv.config();
 
 // server Initialization
@@ -26,6 +27,7 @@ connectMongoDB(MONGODB_URI);
 // API Routes
 app.use('/api/auth', authenticationRouter);
 app.use('/api/user',userRouter);
+app.use('/api/restaurent',restaurentRouter);
 
 // server listening
 app.listen(PORT, () => {
