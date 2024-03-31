@@ -31,6 +31,22 @@ export const getRestaurents = async(req, res) => {
     }
 }
 
+export const getRestaurent = async(req, res) => {
+    try {
+
+        const {id} = req.params;
+
+        const restaurent = await Restaurant.findById(id);
+        if(!restaurent){
+            return res.status(404).json({message:'No restaurent found!'});
+        }
+        return res.status(200).json(restaurent);
+
+    } catch (error) {
+        return res.status(500).json({error:error.message});
+    }
+}
+
 export const updateRestaurent = async(req, res) => {
     try {
         const {id} = req.params;
@@ -39,7 +55,7 @@ export const updateRestaurent = async(req, res) => {
             return res.status(404).json({message:'No restaurent found!'});
         }
 
-        return res.status(200).json({message:'Restaurent Updated successfully.',restaurent});
+        return res.status(200).json({message:'Restaurent Updated successfully.'});
 
     } catch (error) {
         return res.status(500).json({error:error.message});
