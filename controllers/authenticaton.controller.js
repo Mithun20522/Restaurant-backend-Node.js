@@ -3,7 +3,8 @@ import User from '../models/user.model.js';
 
 export const register = async(req, res, next) => {
     try {
-        const {username, email, password, profileImg, userType, address, phone} = req.body;
+
+        const {username, email, password, userType, address, phone} = req.body;
         if(!username || !email || !password || !userType || !phone){
             return res.status(400).json({message: "You can't leave madatory fields blank"});
         }
@@ -24,7 +25,7 @@ export const register = async(req, res, next) => {
 
         await newUser.save();
         return res.status(201).json(newUser);
-        
+
     } catch (error) {
         return res.status(500).json({message:error.message});
     }
