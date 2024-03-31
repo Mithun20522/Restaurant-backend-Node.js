@@ -3,11 +3,8 @@ import { login, logout, register } from '../controllers/authenticaton.controller
 
 const authenticationRouter = express.Router();
 
-// Register API
 authenticationRouter.post('/register', register);
-// Login API
 authenticationRouter.post('/login',login);
-// Logout API
 authenticationRouter.get('/logout', logout);
 
 export default authenticationRouter;
