@@ -1,4 +1,5 @@
 import User from '../models/user.model.js';
+import bcrypt from 'bcryptjs';
 
 export const getUsers = async(req, res) => {
     try {
@@ -32,6 +33,10 @@ export const getUser = async(req, res) => {
 export const updateUser = async(req, res) => {
     try {
         const {id} = req.params;
+        if(req.body.password) {
+            req.body.password = bcrypt.hashSync(req.body.password, 10);
+        }
+
         const user = req.body;
 
         const isUpdated = await User.findByIdAndUpdate(id,user,{new:true});
