@@ -51,12 +51,30 @@ export const login = async(req, res) => {
         }
 
         const isAlreadyLoggedIn = req.cookies.acess_token_restaurent;
-        if(isAlreadyLoggedIn) return res.status(400).json({message:"you're already logged in."})
+        if(isAlreadyLoggedIn) {
+            return res.status(400).json({message:"you're already logged in."});
+        }
 
         const token = jwt.sign({id:existingUser._id}, process.env.JWT_SECRET_KEY, {expiresIn:'1h'});
         res.cookie('acess_token_restaurent', token);
-        
+
         return res.status(200).json({message:'Login sucessfull'});
+
+    } catch (error) {
+        return res.status(500).json({message:error.message});
+    }
+}
+
+export const logout = async(req, res) => {
+    try {
+        
+        const token = req.cookies.acess_token_restaurent;
+        if(!token) {
+            return res.status(400).json({message: 'Login required!'});
+        }
+
+        res.clearCookie('acess_token_restaurent');
+        return res.status(200).json({message: 'Logged out successfully!'});
 
     } catch (error) {
         return res.status(500).json({message:error.message});
