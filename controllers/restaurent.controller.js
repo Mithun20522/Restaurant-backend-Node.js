@@ -25,6 +25,21 @@ export const getRestaurents = async(req, res) => {
         }
 
         return res.status(200).json(restaurents);
+
+    } catch (error) {
+        return res.status(500).json({error:error.message});
+    }
+}
+
+export const deleteRestaurent = async(req, res) => {
+    try {
+        const {id} = req.params;
+        const restaurent = await Restaurant.findByIdAndDelete(id);
+        if(!restaurent){
+            return res.status(404).json({message:'No restaurent found!'});
+        }
+
+        return res.status(200).json({message:'Restaurent deleted successfully.'});
         
     } catch (error) {
         return res.status(500).json({error:error.message});
