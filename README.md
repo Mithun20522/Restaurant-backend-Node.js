@@ -24,7 +24,7 @@ Welcome to the backend repository for the Food Ordering App, built with Node.js.
 - Role-based Access Control using JWT verification
 
 ## Installation:
-1. Clone the repository: `git clone https://github.com/Mithun20522/Restaurent-backend-Node.js.git <path-to-clone>`
+1. Clone the repository: `git clone https://github.com/Mithun20522/Restaurant-backend-Node.js.git <path-to-clone>`
 2. Install dependencies: `npm i express mongoose cors nodemon bcryptjs jsonwebtoken cookie-parser morgan dotenv nodemon colors`
 3. Set up environment variables by creating a `.env` file and defining them.
 
@@ -45,11 +45,11 @@ Welcome to the backend repository for the Food Ordering App, built with Node.js.
   - Delete User: `/api/user/delete-user/:id`
 
 - **Restaurants:**
-  - Get Restaurant by ID: `/api/restaurent/get-restaurent/:id`
-  - Get Restaurants: `/api/restaurent/get-restaurents`
-  - Create Restaurant: `/api/restaurent/add-restaurent`
-  - Update Restaurant: `/api/restaurent/update-restaurent/:id`
-  - Delete Restaurant: `/api/restaurent/delete-restaurent/:id`
+  - Get Restaurant by ID: `/api/restaurant/get-restaurant/:id`
+  - Get Restaurants: `/api/restaurant/get-restaurants`
+  - Create Restaurant: `/api/restaurant/add-restaurant`
+  - Update Restaurant: `/api/restaurant/update-restaurant/:id`
+  - Delete Restaurant: `/api/restaurant/delete-restaurant/:id`
 
 - **Orders:**
   - Get Orders: `/api/order/get-orders`
@@ -58,7 +58,7 @@ Welcome to the backend repository for the Food Ordering App, built with Node.js.
   - Delete Order: `/api/order/delete-order/:id`
 
 ## Deployment:
-This backend has been deployed on [Live URL](https://food-ordering-app-backend-bx3z.onrender.com/). Access the home route and other routes as mentioned above.
+This backend has been deployed on this [Live URL](https://food-ordering-app-backend-bx3z.onrender.com/). Access the home route and other routes as mentioned above.
 
 ## Contributors:
 - [Mithun Verma](https://www.linkedin.com/in/mithunverma01/)

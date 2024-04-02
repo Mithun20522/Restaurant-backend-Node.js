@@ -27,7 +27,7 @@ app.get('/',(req,res) => {
 
 app.use('/api/auth', authenticationRouter);
 app.use('/api/user',userRouter);
-app.use('/api/restaurent',restaurentRouter);
+app.use('/api/restaurant',restaurentRouter);
 app.use('/api/order', orderRouter);
 
 app.listen(PORT, () => {
