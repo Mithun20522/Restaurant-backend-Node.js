@@ -21,6 +21,10 @@ const MONGODB_URI = process.env.MONGODB_URI;
 
 connectMongoDB(MONGODB_URI);
 
+app.get('/',(req,res) => {
+    return res.json({message:'Test API working fine.'});
+})
+
 app.use('/api/auth', authenticationRouter);
 app.use('/api/user',userRouter);
 app.use('/api/restaurent',restaurentRouter);
