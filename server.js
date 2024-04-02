@@ -29,7 +29,7 @@ connectMongoDB(MONGODB_URI);
 app.use('/api/auth', authenticationRouter);
 app.use('/api/user',userRouter);
 app.use('/api/restaurent',restaurentRouter);
-app.use('/api/order/', orderRouter);
+app.use('/api/order', orderRouter);
 
 // server listening
 app.listen(PORT, () => {

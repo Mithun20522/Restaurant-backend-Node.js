@@ -2,15 +2,14 @@ import Order from "../models/order.model.js";
 
 export const createOrder = async(req, res) => {
     try {
-        const {items, totalcost, restaurentId, status} = req.body;
-        if(!items || !totalcost || !restaurentId || !status){
+        const {items, totalcost, restaurentId} = req.body;
+        if(!items || !totalcost || !restaurentId){
             return res.status(400).json({message:"You can't leave mandatory fields blank!"});
         }
         const newOrder = new Order({
             items,
             totalcost,
-            restaurentId,
-            status
+            restaurentId
         });
 
         await newOrder.save();
