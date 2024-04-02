@@ -4,9 +4,9 @@ import { verifyToken } from '../middlewares/user.middleware.js';
 
 const userRouter = express.Router();
 
-userRouter.get('/get-users', verifyToken, getUsers);
-userRouter.get('/get-user/:id', verifyToken, getUser);
-userRouter.delete('/delete-user/:id', verifyToken, deleteUser);
+userRouter.get('/get-users', verifyToken ,getUsers);
+userRouter.get('/get-user/:id', verifyToken ,getUser);
+userRouter.delete('/delete-user/:id', deleteUser);
 userRouter.patch('/update-user/:id', updateUser);
 
 export default userRouter;

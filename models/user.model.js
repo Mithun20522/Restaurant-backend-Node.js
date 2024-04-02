@@ -18,11 +18,9 @@ const userSchema = new mongoose.Schema({
         type:String,
         default: "https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png"
     },
-    userType:{
-        type:String,
-        required:true,
-        default:"customer",
-        enum:['customer','admin','vendor','rider']
+    isVendor:{
+        type:Boolean,
+        default:false
     },
     address:{
         type:Array,

@@ -5,8 +5,8 @@ import jwt from 'jsonwebtoken';
 export const register = async(req, res) => {
     try {
 
-        const {username, email, password, userType, address, phone} = req.body;
-        if(!username || !email || !password || !userType || !phone){
+        const {username, email, password, address, phone} = req.body;
+        if(!username || !email || !password || !phone){
             return res.status(400).json({message: "You can't leave madatory fields blank"});
         }
 
@@ -20,8 +20,7 @@ export const register = async(req, res) => {
             username,
             email,
             password:hashedPassword,
-            phone,
-            userType
+            phone
         });
 
         await newUser.save();
@@ -55,7 +54,7 @@ export const login = async(req, res) => {
             return res.status(400).json({message:"you're already logged in."});
         }
 
-        const token = jwt.sign({id:existingUser._id,userType:existingUser.userType}, process.env.JWT_SECRET_KEY, {expiresIn:'1h'});
+        const token = jwt.sign({_id:existingUser._id,isVendor:existingUser.isVendor}, process.env.JWT_SECRET_KEY, {expiresIn:'1h'});
         res.cookie('acess_token_restaurent', token);
 
         return res.status(200).json({message:'Login sucessfull'});
