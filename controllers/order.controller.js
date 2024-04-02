@@ -19,3 +19,15 @@ export const createOrder = async(req, res) => {
         return res.status(500).json({error:error.message});
     }
 }
+
+export const getAllOrders = async(req, res) => {
+    try {
+        const orders = await Order.find();
+        if(!orders){
+            return res.status(404).json({message:'You have no order yet!'})
+        }
+        return res.status(200).json(orders);
+    } catch (error) {
+        return res.status(500).json({error:error.message});
+    }
+}
