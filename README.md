@@ -58,7 +58,7 @@ Welcome to the backend repository for the Food Ordering App, built with Node.js.
   - Delete Order: `/api/order/delete-order/:id`
 
 ## Deployment:
-This backend has been deployed on [Rendor](https://food-ordering-app-backend-bx3z.onrender.com/). Access the home route and other routes as mentioned above.
+This backend has been deployed on [Live URL](https://food-ordering-app-backend-bx3z.onrender.com/). Access the home route and other routes as mentioned above.
 
 ## Contributors:
 - [Mithun Verma](https://www.linkedin.com/in/mithunverma01/)
