@@ -9,7 +9,7 @@ const orderSchema = new mongoose.Schema({
         type:Number,
         required:true
     },
-    restaurent:{
+    restaurentId:{
         type:mongoose.Schema.Types.ObjectId,
         ref:'Restaurant'
     },

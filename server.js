@@ -7,6 +7,7 @@ import connectMongoDB from './database/mongoDB.js';
 import authenticationRouter from './routes/authentication.route.js';
 import userRouter from './routes/user.route.js';
 import restaurentRouter from './routes/restaurent.route.js';
+import orderRouter from './routes/order.route.js';
 dotenv.config();
 
 // server Initialization
@@ -28,6 +29,7 @@ connectMongoDB(MONGODB_URI);
 app.use('/api/auth', authenticationRouter);
 app.use('/api/user',userRouter);
 app.use('/api/restaurent',restaurentRouter);
+app.use('/api/order/', orderRouter);
 
 // server listening
 app.listen(PORT, () => {
