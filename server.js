@@ -10,28 +10,22 @@ import restaurentRouter from './routes/restaurent.route.js';
 import orderRouter from './routes/order.route.js';
 dotenv.config();
 
-// server Initialization
 const app = express();
 
-// Some basic middlewares
 app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
 
-// Importing Senstive information keys
 const PORT = process.env.PORT || 3000;
 const MONGODB_URI = process.env.MONGODB_URI;
 
-// Connection with database
 connectMongoDB(MONGODB_URI);
 
-// API Routes
 app.use('/api/auth', authenticationRouter);
 app.use('/api/user',userRouter);
 app.use('/api/restaurent',restaurentRouter);
 app.use('/api/order', orderRouter);
 
-// server listening
 app.listen(PORT, () => {
     console.log(`server is listening at PORT: ${PORT}`.white.bgBlue);
 })
